@@ -1,11 +1,14 @@
-# Використовуємо офіційний образ nginx
+# Use an official Nginx or Apache image
 FROM nginx:latest
 
-# Копіюємо сторінку "Тестове Завдання Виконано" у директорію /usr/share/nginx/html/
+# Copy the custom index.html file to the appropriate location
 COPY index.html /usr/share/nginx/html/
 
-# Відкриваємо порти
+# Expose port 88 to the outside world
 EXPOSE 88
 
-# Запускаємо nginx при старті контейнера
+# Change default port of nginx
+RUN sed -i 's/listen\(.*\)80;/listen 88;/' /etc/nginx/conf.d/default.conf
+
+# CMD statement to start Nginx (default behavior of the nginx image)
 CMD ["nginx", "-g", "daemon off;"]
