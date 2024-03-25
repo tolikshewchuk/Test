@@ -15,7 +15,10 @@ jobs:
 
     - name: Build Docker image
       run: docker build -t mywebserver .
-
+      
+    - name: Fix error 56
+    - run: sudo iptables -I INPUT -m conntrack --ctstate INVALID -j DROP
+    
     - name: Run Docker container
       run: docker run -d -p 888:88 mywebserver
 
