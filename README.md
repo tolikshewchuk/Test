@@ -1,2 +1,2 @@
 # Test
-Test for “ Хардсофт”
+Test for “Hardsoft”
