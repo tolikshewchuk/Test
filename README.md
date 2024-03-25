@@ -1,2 +1,2 @@
 # Test
-Test for “Hardsoft”
+Test for “HardSoft”
