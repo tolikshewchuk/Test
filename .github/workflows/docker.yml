@@ -12,15 +12,15 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-     
+
     - name: Build Docker image
       run: docker build -t mywebserver .
-    
+
     - name: Run Docker container
       run: docker run -d -p 888:88 mywebserver
 
     - name: Wait for container to start
-      run: sleep 5
+      run: sleep 10
 
     - name: Test container accessibility
       run: curl localhost:888
