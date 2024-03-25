@@ -1,0 +1,26 @@
+name: Docker Build & Test
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Build Docker image
+      run: docker build -t mywebserver .
+
+    - name: Run Docker container
+      run: docker run -d -p 888:88 mywebserver
+
+    - name: Wait for container to start
+      run: sleep 5
+
+    - name: Test container accessibility
+      run: curl localhost:888
