@@ -2,7 +2,7 @@
 FROM nginx:latest
 
 # Копіюємо сторінку "Тестове Завдання Виконано" у директорію /usr/share/nginx/html/
-COPY index.html /usr/share/nginx/html/
+ADD index.html /www/data/
 
 # Відкриваємо порти
 EXPOSE 88
