@@ -23,4 +23,5 @@ jobs:
       run: sleep 10
 
     - name: Test container accessibility
-      run: curl localhost:888
+      run: |
+        curl -sSf localhost:888 | grep "Test Task Done"
