@@ -12,9 +12,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-    
-    - name: Fix error 56
-      run: ssh remote-docker 'sudo iptables -I INPUT -m conntrack --ctstate INVALID -j DROP'
      
     - name: Build Docker image
       run: docker build -t mywebserver .
